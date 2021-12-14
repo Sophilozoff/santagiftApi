@@ -19,6 +19,8 @@ public class Gift {
     private String name;
     @Column(name="url_path")
     private String urlPath;
+    @ManyToOne
+    private Child child;
 
     public Gift(String giftName, String giftURL) {
     }
