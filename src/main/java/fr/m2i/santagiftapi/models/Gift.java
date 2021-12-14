@@ -17,8 +17,8 @@ public class Gift {
     private Long id;
     @Column(name="name")
     private String name;
-    @Column(name="url_path")
-    private String urlPath;
+    @Column(name="url")
+    private String url;
     @ManyToOne
     private Child child;
 
