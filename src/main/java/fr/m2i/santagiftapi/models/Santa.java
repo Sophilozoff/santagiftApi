@@ -9,11 +9,14 @@ import java.util.List;
 @Entity
 @Data
 @NoArgsConstructor
-public class Santa extends User{
+public class Santa{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String username;
+    private String password;
+    private String avatar;
     @ManyToMany
-    private List<Child> favoriteChilds;
+    private List<Child> favoriteChildren;
 }

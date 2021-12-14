@@ -1,5 +1,6 @@
 package fr.m2i.santagiftapi.models;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -11,15 +12,15 @@ import javax.persistence.Id;
 @Entity
 @Data
 @NoArgsConstructor
-public class Child extends User {
+@AllArgsConstructor
+public class Child {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String username;
+    private String password;
+    private String avatar;
     private String address;
 
-    public Child(String username, String password, String avatar, String address) {
-        super(username, password, avatar);
-        this.address = address;
-    }
 }
