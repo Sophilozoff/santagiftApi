@@ -20,9 +20,6 @@ public class Gift {
     @Column(name="url")
     private String url;
     @ManyToOne
-    private Child child;
-
-    public Gift(String giftName, String giftURL) {
-    }
+    private User user;
 
 }
