@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Calendar;
 import java.util.Date;
 
 @Entity
@@ -20,11 +21,16 @@ public class Gift {
     private String name;
     @Column(name="url")
     private String url;
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.MERGE })
     private User santa;
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.MERGE })
     private User child;
-    private boolean isBooked;
+    private boolean isBooked = false;
     private Date createdAt;
-
+    public void setIsBooked(){
+        this.isBooked = false;
+    }
+    public void setCreatedAt() {
+        this.createdAt = Calendar.getInstance().getTime();
+    }
 }
