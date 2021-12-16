@@ -82,31 +82,31 @@ public class AuthController {
         List<Role> roles = new ArrayList<>();
 
         if (strRoles == null) {
-            Role userRole = roleRepository.findByName(ERole.ROLE_CHILD)
+            Role childRole = roleRepository.findByName(ERole.ROLE_CHILD)
                     .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
-            roles.add(userRole);
+            roles.add(childRole);
         } else {
             strRoles.forEach(role -> {
-                switch (role.getId().toString()) {
-                    case "1":
+                switch (role.getLibelle()) {
+                    case "Enfant":
                         Role childRole = roleRepository.findByName(ERole.ROLE_CHILD)
                                 .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
                         roles.add(childRole);
 
                         break;
-                    case "2":
+                    case "Père-Noël":
                         Role santaRole = roleRepository.findByName(ERole.ROLE_SANTA)
                                 .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
                         roles.add(santaRole);
 
                         break;
-                    case "3":
+                    case "Modérateur":
                         Role modRole = roleRepository.findByName(ERole.ROLE_MODERATOR)
                                 .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
                         roles.add(modRole);
 
                         break;
-                    case "4":
+                    case "Administrateur":
                         Role adminRole = roleRepository.findByName(ERole.ROLE_ADMIN)
                                 .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
                         roles.add(adminRole);
