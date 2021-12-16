@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Data
@@ -20,6 +21,10 @@ public class Gift {
     @Column(name="url")
     private String url;
     @ManyToOne
-    private User user;
+    private User santa;
+    @ManyToOne
+    private User child;
+    private boolean isBooked;
+    private Date createdAt;
 
 }
